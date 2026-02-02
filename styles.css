@@ -1,0 +1,418 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, sans-serif;
+    background: #1a1a1a;
+    min-height: 100vh;
+    padding: 20px;
+}
+
+.container {
+    max-width: 600px;
+    margin: 0 auto;
+}
+
+.header {
+    text-align: center;
+    color: #e0e0e0;
+    margin-bottom: 30px;
+}
+
+.header h1 {
+    font-size: 28px;
+    margin-bottom: 5px;
+}
+
+.card {
+    background: #2d2d2d;
+    border-radius: 12px;
+    padding: 20px;
+    margin-bottom: 20px;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.3);
+}
+
+.card h2 {
+    font-size: 18px;
+    color: #e0e0e0;
+    margin-bottom: 15px;
+}
+
+.input-group {
+    display: flex;
+    gap: 10px;
+    margin-bottom: 15px;
+}
+
+input[type="text"] {
+    flex: 1;
+    padding: 12px;
+    border: 2px solid #444;
+    border-radius: 8px;
+    font-size: 16px;
+    background: #1a1a1a;
+    color: #e0e0e0;
+}
+
+input[type="text"]:focus {
+    outline: none;
+    border-color: #666;
+}
+
+button {
+    padding: 12px 20px;
+    border: none;
+    border-radius: 8px;
+    font-size: 16px;
+    font-weight: 600;
+    cursor: pointer;
+    transition: all 0.3s;
+    pointer-events: auto;
+    -webkit-tap-highlight-color: transparent;
+}
+
+.btn-primary {
+    background: #444;
+    color: #e0e0e0;
+}
+
+.btn-primary:hover {
+    background: #555;
+}
+
+.btn-primary:active {
+    transform: scale(0.98);
+}
+
+.btn-success {
+    background: #10b981;
+    color: white;
+    padding: 12px 16px;
+}
+
+.btn-success:hover {
+    background: #059669;
+}
+
+.btn-success:active {
+    transform: scale(0.98);
+}
+
+.list-header {
+    background: #1a1a1a;
+    color: #e0e0e0;
+    padding: 15px 20px;
+    border-radius: 12px 12px 0 0;
+    margin: -20px -20px 15px -20px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    border-bottom: 1px solid #444;
+}
+
+.list-header h3 {
+    font-size: 20px;
+}
+
+.list-header small {
+    display: block;
+    opacity: 0.7;
+    margin-top: 3px;
+}
+
+.btn-delete {
+    background: #444;
+    color: #e0e0e0;
+    padding: 8px 12px;
+    font-size: 14px;
+}
+
+.btn-delete:hover {
+    background: #555;
+}
+
+.btn-delete:active {
+    transform: scale(0.98);
+}
+
+.item {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    padding: 12px;
+    background: #1a1a1a;
+    border-radius: 8px;
+    margin-bottom: 8px;
+    border: 1px solid #333;
+}
+
+.item:hover {
+    background: #252525;
+}
+
+.item input[type="checkbox"] {
+    width: 20px;
+    height: 20px;
+    cursor: pointer;
+    accent-color: #666;
+}
+
+.item-text {
+    flex: 1;
+    font-size: 16px;
+    color: #e0e0e0;
+    word-break: break-word;
+}
+
+.item-text.completed {
+    text-decoration: line-through;
+    color: #666;
+}
+
+.item input[type="text"] {
+    flex: 1;
+    padding: 8px;
+    font-size: 16px;
+}
+
+.btn-icon {
+    background: none;
+    border: none;
+    padding: 8px;
+    cursor: pointer;
+    font-size: 18px;
+    border-radius: 6px;
+    transition: all 0.3s;
+    min-width: 36px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.btn-edit:hover {
+    background: #333;
+}
+
+.btn-icon-delete:hover {
+    background: #3a1a1a;
+}
+
+.btn-save {
+    background: #10b981;
+    color: white;
+}
+
+.btn-save:hover {
+    background: #059669;
+}
+
+.btn-cancel {
+    background: #ef4444;
+    color: white;
+}
+
+.btn-cancel:hover {
+    background: #dc2626;
+}
+
+.empty-state {
+    text-align: center;
+    padding: 40px 20px;
+    color: #666;
+}
+
+.empty-state-icon {
+    font-size: 48px;
+    margin-bottom: 10px;
+}
+
+.lists-container {
+    display: none;
+}
+
+.lists-container.show {
+    display: block;
+}
+
+.no-lists {
+    text-align: center;
+    padding: 60px 20px;
+}
+
+.no-lists-icon {
+    font-size: 64px;
+    margin-bottom: 15px;
+    opacity: 0.3;
+}
+
+.no-lists p {
+    color: #888 !important;
+}
+
+/* Animaciones */
+@keyframes fadeIn {
+    from {
+        opacity: 0;
+        transform: translateY(10px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+.card {
+    animation: fadeIn 0.3s ease;
+}
+
+/* Responsive */
+@media (max-width: 480px) {
+    body {
+        padding: 10px;
+    }
+    
+    .header h1 {
+        font-size: 24px;
+    }
+    
+    .card {
+        padding: 15px;
+    }
+    
+    input[type="text"] {
+        font-size: 14px;
+    }
+    
+    button {
+        font-size: 14px;
+        padding: 10px 16px;
+    }
+}
+
+/* Estilos para autenticación */
+.screen {
+    min-height: 100vh;
+    position: relative;
+    z-index: 1;
+}
+
+input[type="email"],
+input[type="password"],
+input[type="number"] {
+    flex: 1;
+    padding: 12px;
+    border: 2px solid #444;
+    border-radius: 8px;
+    font-size: 16px;
+    background: #1a1a1a;
+    color: #e0e0e0;
+    -webkit-appearance: none;
+    appearance: none;
+    pointer-events: auto;
+}
+
+input[type="email"]:focus,
+input[type="password"]:focus,
+input[type="number"]:focus {
+    outline: none;
+    border-color: #666;
+    background: #252525;
+}
+
+.error-message {
+    color: #ef4444;
+    margin: 10px 0;
+    font-size: 14px;
+    min-height: 20px;
+}
+
+.btn-secondary {
+    background: transparent;
+    color: #888;
+    border: 1px solid #444;
+}
+
+.btn-secondary:hover {
+    background: #2d2d2d;
+    color: #e0e0e0;
+}
+
+.btn-logout {
+    background: #444;
+    color: #e0e0e0;
+    padding: 6px 12px;
+    font-size: 12px;
+    margin-top: 5px;
+}
+
+.btn-logout:hover {
+    background: #555;
+}
+
+/* Selector de tipo de lista */
+.list-type-selector {
+    display: flex;
+    gap: 15px;
+    margin: 15px 0;
+}
+
+.radio-option {
+    flex: 1;
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    padding: 12px;
+    background: #1a1a1a;
+    border: 2px solid #444;
+    border-radius: 8px;
+    cursor: pointer;
+    transition: all 0.3s;
+}
+
+.radio-option:hover {
+    border-color: #666;
+    background: #252525;
+}
+
+.radio-option input[type="radio"] {
+    cursor: pointer;
+    accent-color: #666;
+}
+
+.radio-option input[type="radio"]:checked + span {
+    color: #e0e0e0;
+    font-weight: 600;
+}
+
+.radio-option span {
+    color: #888;
+    font-size: 14px;
+}
+
+/* Precio en items */
+.item-price {
+    color: #10b981;
+    font-weight: 600;
+    font-size: 14px;
+    white-space: nowrap;
+}
+
+.item-price-empty {
+    color: #888;
+    font-size: 12px;
+    font-style: italic;
+    white-space: nowrap;
+    cursor: pointer;
+    padding: 4px 8px;
+    border-radius: 4px;
+    transition: all 0.3s;
+}
+
+.item-price-empty:hover {
+    background: #333;
+    color: #e0e0e0;
+}
+
